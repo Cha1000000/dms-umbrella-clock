@@ -28,6 +28,8 @@ Set in the widget instance `config` (`~/.config/DankMaterialShell/settings.json`
 | `handColor` | `#ff2438` | Hands and centre cap colour |
 | `handCore` | `#ffd2d6` | Light core line inside the hands |
 | `digitColor` | `#19b5ff` | Digit colour |
+| `textColor` | `#d9d9de` | Weekday and date text colour |
+| `brandColor` | `#b9b9c2` | UMBRELLA caption colour (CORPORATION is a darker shade of it) |
 | `dateLanguage` | `auto` | `auto` (Russian with a `ru` locale, otherwise English), `ru` or `en` |
 
 ## Using your own emblem

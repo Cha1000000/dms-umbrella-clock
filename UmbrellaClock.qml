@@ -1,5 +1,6 @@
 import QtQuick
 import qs.Common
+import qs.Widgets
 import qs.Modules.Plugins
 
 // Часы Umbrella Corporation. Геометрия — в условных единицах 380×380 (как в макете),
@@ -13,10 +14,12 @@ DesktopPluginComponent {
     minWidth: 160
     minHeight: 160
 
-    // Цвета (можно переопределить в config экземпляра: handColor, handCore, digitColor)
+    // Цвета (можно переопределить в config экземпляра: handColor, handCore, digitColor, textColor, brandColor)
     readonly property color handColor: pluginData.handColor ?? "#ff2438"
     readonly property color handCore: pluginData.handCore ?? "#ffd2d6"
     readonly property color digitColor: pluginData.digitColor ?? "#19b5ff"
+    readonly property color textColor: pluginData.textColor ?? "#d9d9de"
+    readonly property color brandColor: pluginData.brandColor ?? "#b9b9c2"
 
     // Язык даты: "auto" (русский при ru-локали, иначе английский), "ru" или "en" — config: dateLanguage
     readonly property string dateLanguage: pluginData.dateLanguage ?? "auto"
@@ -353,39 +356,42 @@ DesktopPluginComponent {
     }
 
     // ---------- подписи ----------
-    Text {
+    StyledText {
         id: dateText
         x: root.ox
         width: root.side
         y: root.oy + 58 * root.k - height / 2
         horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.NoWrap
+        elide: Text.ElideNone
         text: root.days[root.now.getDay()] + " · " + root.now.getDate() + " " + root.months[root.now.getMonth()]
-        color: "#d9d9de"
-        font.family: Theme.fontFamily
+        color: root.textColor
         font.pixelSize: Math.max(8, 20 * root.k)
         font.weight: Font.DemiBold
         font.letterSpacing: 2 * root.k
     }
-    Text {
+    StyledText {
         x: root.ox
         width: root.side
         y: root.oy + 310 * root.k - height / 2
         horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.NoWrap
+        elide: Text.ElideNone
         text: "UMBRELLA"
-        color: "#b9b9c2"
-        font.family: Theme.fontFamily
+        color: root.brandColor
         font.pixelSize: Math.max(6, 17 * root.k)
         font.weight: Font.ExtraBold
         font.letterSpacing: 4 * root.k
     }
-    Text {
+    StyledText {
         x: root.ox
         width: root.side
         y: root.oy + 325 * root.k - height / 2
         horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.NoWrap
+        elide: Text.ElideNone
         text: "CORPORATION"
-        color: "#8c8c92"
-        font.family: Theme.fontFamily
+        color: Qt.darker(root.brandColor, 1.3)
         font.pixelSize: Math.max(4, 9 * root.k)
         font.weight: Font.DemiBold
         font.letterSpacing: 4.5 * root.k
