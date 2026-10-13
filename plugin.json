@@ -1,0 +1,15 @@
+{
+    "$schema": "https://github.com/AvengeMedia/DankMaterialShell/raw/refs/heads/master/PLUGINS/plugin-schema.json",
+    "id": "umbrellaClock",
+    "name": "Umbrella Clock",
+    "description": "Analog + digital desktop clock with a red-and-silver umbrella dial, neon scarlet hands, cyan 7-segment digits and a date line",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Cha1000000",
+    "icon": "schedule",
+    "type": "desktop",
+    "capabilities": ["desktop-widget"],
+    "component": "./UmbrellaClock.qml",
+    "requires_dms": ">=1.2.0",
+    "permissions": []
+}
